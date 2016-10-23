@@ -1,0 +1,11 @@
+[
+  {"nome":"Fabio","sobrenome":"Farias","email":"fabio@fabiofarias.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Joao","sobrenome":"Silva","email":"joao@gmail.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Pedro","sobrenome":"Soares","email":"pedro@gmail.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Maria","sobrenome":"Hench","email":"maria@gmail.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Flavia","sobrenome":"Moura","email":"flavia@gmail.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Carolina","sobrenome":"Cunha","email":"carolina@gmail.com.br","cidade":"Rio de Janeiro","estado":"RJ"},
+  {"nome":"Ricardo","sobrenome":"Roberg","email":"ricardo@gmail.com.br","cidade":"Nova Iguacu","estado":"RJ"},
+  {"nome":"Roberto","sobrenome":"Montes","email":"roberto@gmail.com.br","cidade":"Caxias","estado":"RJ"},
+  {"nome":"Carla","sobrenome":"Galvao","email":"carla@gmail.com.br","cidade":"São Pedro da Aldeia","estado":"RJ"}
+]

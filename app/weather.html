@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <title>AngularJS Weather App</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+    </head>
+    <body ng-app="geoApp" ng-controller="mainController" style="background: url(images/background.jpg);">
+        <div class="container">
+
+            <h1>{{'AngularJS Weather App'| uppercase}}</h1>
+
+			<pre class="hide">
+				{{weatherlist}}
+			</pre>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="" ng-click="searchWeather()">
+                        <img src="images/position.png" alt="Current Position" title="Get Current Location {{position}}" />
+                    </a>
+                </div>
+
+                <div class="col-md-8">
+                    <input type="text" ng-model="city" placeholder="Enter your City with country code or Zip Code e.g. New York,US / 41245" value="{{city}}" class="form-control" ng-keyup="searchWeatherKeyUp()" >
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-success" ng-click="searchWeather('manual')">Search {{city}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row hide">
+                <div class="alert {{response_message && 'alert-success'|| 'alert-danger'}}">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>Success!</strong> {{response_message}}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">My Location</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <img ng-src="http://openweathermap.org/img/w/{{weatherlist.data.weather[0].icon}}.png" alt="" title="" />
+                                            <span class="badge badge-info"> {{weatherlist.data.name}}, {{weatherlist.data.sys.country}} </span>
+
+                                            Sunrise: <span class="badge badge-info"> {{weatherlist.data.sys.sunrise| date:'HH:mm'}} </span>
+                                            Sunrset: <span class="badge badge-info"> {{weatherlist.data.sys.sunset| date:'HH:mm'}} </span>
+                                            <span>{{weatherlist.data.weather[0].description}}</span>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            Sunrise: <span class="badge badge-info"> {{weatherlist.data.sys.sunrise| date:'HH:mm'}} </span>
+                                            Sunrset: <span class="badge badge-info"> {{weatherlist.data.sys.sunset| date:'HH:mm'}} </span>
+                                            <span>{{weatherlist.data.weather[0].description}}</span>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4">City</div>
+                                            <div class="col-lg-8">{{weatherlist.data.name}}, {{weatherlist.data.sys.country}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4">Country</div>
+                                            <div class="col-lg-8">{{weatherlist.data.sys.country}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4">Latitude</div>
+                                            <div class="col-lg-8">{{weatherlist.data.coord.lat}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-4">Longitude</div>
+                                            <div class="col-lg-8">{{weatherlist.data.coord.lon}}</div>
+                                        </div>
+                                    </div>
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="col-lg-4">
+												<ds-widget-clock></ds-widget-clock>
+											</div>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Temperature &deg;</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <img src="images/hot-thermometer.png" /> <span style="font-size: 30px; color: #ff0000;">{{weatherlist.data.main.temp_max}}&deg;</span>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <img src="images/cold-temperature.png" /> <span style="font-size: 30px; color: #0000ff;">{{weatherlist.data.main.temp_min}}&deg;<span>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="panel panel-success">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Humidity / Pressure</h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="col-lg-6">
+                                                                    <img src="images/rain.png" /> &nbsp;<span style="font-size: 30px; color: #0000ff;">{{weatherlist.data.main.humidity}}<span>
+                                                                            </div>
+                                                                            <div class="col-lg-6">
+                                                                                <img src="images/pressure.png" /> &nbsp;<span style="font-size: 30px; color: #0000ff;">{{weatherlist.data.main.pressure}}<span>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+
+                                                                                        <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
+                                                                                        <script type="application/javascript" src="js/app-weather.js"></script>
+																						<script src="bower_components/angular-ui-clock/dist/angular-clock.js"></script>
+                                                                                        </body>
+																						</html>

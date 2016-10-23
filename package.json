@@ -1,0 +1,19 @@
+{
+  "name": "angularjs weather app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server ./app -a localhost -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshwinParmar/WeatherApp.git"
+  },
+  "author": "Ashwin Parmar",
+  "license": "MIT",
+  "homepage": "https://github.com/AshwinParmar/WeatherApp/blob/master/README.md"
+}
